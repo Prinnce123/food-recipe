@@ -6,8 +6,4 @@
 
 ## The Team
 
-- `Ashwin Narayanan S`
-- `Bhojanapalli Sri Ganesh`
-- `Avadhanam Sandilya Sreepadh`
-- `Sajith Rajan`
-- `Basam Thilaknath Reddy`
+- `Prince Sharma`
