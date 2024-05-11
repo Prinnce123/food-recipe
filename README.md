@@ -1,4 +1,4 @@
-## Gonna Eat That?
+## Gonna Eat
 
 "Learn Cook Share. Cooking Made Easy"
 
