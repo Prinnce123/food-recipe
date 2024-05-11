@@ -1,4 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
+/* Desktop version */
+body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* Tablet version */
+@media only screen and (max-width: 768px) {
+  body {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile version */
+@media only screen and (max-width: 480px) {
+  body {
+    width: 480px;
+    margin: 0 auto;
+  }
+}
 
 html{
     position: relative;
