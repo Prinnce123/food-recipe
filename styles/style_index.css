@@ -22,27 +22,6 @@ html{
     from{ bottom:-100px; opacity:0 } 
     to{ bottom:0; opacity:1 }
 }
-/* Desktop version */
-body {
-  width: 1000px;
-  margin: 0 auto;
-}
-
-/* Tablet version */
-@media only screen and (max-width: 768px) {
-  body {
-    width: 768px;
-    margin: 0 auto;
-  }
-}
-
-/* Mobile version */
-@media only screen and (max-width: 480px) {
-  body {
-    width: 480px;
-    margin: 0 auto;
-  }
-}
 
 body{
     background: url(https://wallpaperaccess.com/full/826922.jpg) center / cover no-repeat;
@@ -190,11 +169,28 @@ body{
     vertical-align: middle;
 }
 
-@media only screen and (max-width: 950px) {
-    .container table, tr, td{
-        display: block;
-    }
+/* Desktop version */
+body {
+  width: 1000px;
+  margin: 0 auto;
 }
+
+/* Tablet version */
+@media only screen and (max-width: 768px) {
+  body {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile version */
+@media only screen and (max-width: 480px) {
+  body {
+    width: 480px;
+    margin: 0 auto;
+  }
+}
+
 
 .container h1{
     font-size: 3.5rem;
@@ -224,11 +220,28 @@ body{
     transition: all 200ms ease-in;
 }
 
-@media only screen and (max-width: 950px){
-    .container img{
-        display: block;
-    }
+/* Desktop version */
+body {
+  width: 1000px;
+  margin: 0 auto;
 }
+
+/* Tablet version */
+@media only screen and (max-width: 768px) {
+  body {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile version */
+@media only screen and (max-width: 480px) {
+  body {
+    width: 480px;
+    margin: 0 auto;
+  }
+}
+
 
 .container img:hover{
     transform: scale(1.05);
@@ -382,11 +395,28 @@ body{
     width: fit-content;
 }
 
-@media only screen and (max-width: 950px){
-    .map td{
-        display: block;
-    }
+/* Desktop version */
+body {
+  width: 1000px;
+  margin: 0 auto;
 }
+
+/* Tablet version */
+@media only screen and (max-width: 768px) {
+  body {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile version */
+@media only screen and (max-width: 480px) {
+  body {
+    width: 480px;
+    margin: 0 auto;
+  }
+}
+
 
 /* Search Bar */
 
