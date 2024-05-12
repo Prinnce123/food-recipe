@@ -3,7 +3,27 @@
 html{
     scroll-behavior: smooth;
 }
+/* Desktop version */
+body {
+  width: 1000px;
+  margin: 0 auto;
+}
 
+/* Tablet version */
+@media only screen and (max-width: 768px) {
+  body {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile version */
+@media only screen and (max-width: 480px) {
+  body {
+    width: 480px;
+    margin: 0 auto;
+  }
+}
 html{
     background-color: none;
     position: relative;
