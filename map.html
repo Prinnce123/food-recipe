@@ -7,9 +7,9 @@
         <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
         
          
+ 
     <style>
        
-
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -53,17 +53,36 @@
             cursor: pointer;
         }
 
+        .close-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #dc3545;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .close-button:hover {
+            background: #c82333;
+        }
+
         #nutritionInfo {
             margin-top: 20px;
         }
     </style>
+
         <!--Google Fonts-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     </head>
     <body>
         
-       <div class="container">
+      <div class="container">
+        <h1>Recipe Nutrition Calculator</h1>
         <form id="recipeForm">
             <label for="recipe">Enter Recipe Ingredients:</label>
             <textarea id="recipe" name="recipe" rows="10" cols="50" placeholder="e.g. 1 cup rice, 2 eggs"></textarea>
@@ -76,6 +95,7 @@
         <div class="overlay-content">
             <span id="closeOverlay" class="close">&times;</span>
             <div id="nutritionInfo"></div>
+            <button class="close-button" id="closeOverlayButton">Close Overlay</button>
         </div>
     </div>
 
