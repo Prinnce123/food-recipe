@@ -6,49 +6,21 @@
         <link rel="stylesheet" type="text/css" href="styles/style_index.css">
 
         <!--Google Fonts-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Sign-In Demo</title>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script>
-    function handleCredentialResponse(response) {
-      console.log("Encoded JWT ID token: " + response.credential);
-
-      // Decode the token to get user information
-      const userObject = parseJwt(response.credential);
-      console.log(userObject);
-      document.getElementById('user-info').innerText = JSON.stringify(userObject, null, 2);
-    }
-
-    function parseJwt(token) {
-      var base64Url = token.split('.')[1];
-      var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      }).join(''));
-
-      return JSON.parse(jsonPayload);
-    }
-
-    window.onload = function () {
-      google.accounts.id.initialize({
-        client_id: '253871739502-tvrcs1v5b2csekm9a66bmrepc4l6oj2t.apps.googleusercontent.com',
-        callback: handleCredentialResponse
-      });
-      google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-        { theme: "outline", size: "large" }  // customization attributes
-      );
-      google.accounts.id.prompt(); // also display the One Tap dialog
-    }
-  </script>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-In Example</title>
+    <!-- Include the Google Sign-In script -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <style>
+        /* Style the sign-in button */
+        .g-signin2 {
+            margin-top: 20px;
+        }
+    </style>
         
     </head>
     <body>
+        
          
         
         <div class="container">
@@ -60,6 +32,34 @@
         <div id="results"></div>
     </div>
     <script src="script.js"></script>
+
+        
+        <h2>Google Sign-In Example</h2>
+    <!-- Add the sign-in button -->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script>
+        // Define callback function for successful sign-in
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('Logged in as: ' + profile.getName());
+            console.log('Email: ' + profile.getEmail());
+            // You can perform additional actions here, such as sending the user's information to your server.
+        }
+
+        // Initialize Google Sign-In with your client ID
+        function init() {
+            gapi.load('auth2', function () {
+                gapi.auth2.init({
+                    client_id: 'YOUR_CLIENT_ID', // Replace with your actual client ID
+                    // Other optional parameters can be added here
+                });
+            });
+        }
+
+        // Call the init function when the page loads
+        window.onload = init;
+    </script>
 
 
        
