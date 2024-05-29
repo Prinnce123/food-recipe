@@ -49,11 +49,19 @@
         //
          <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edamam Recipe Nutrition</title>
+    <title>Recipe Nutrition</title>
     <link rel="stylesheet" href="style.css">
         
     </head>
     <body>
+         <h1>Recipe Nutrition Calculator</h1>
+    <form id="recipeForm">
+        <label for="recipe">Enter Recipe Ingredients:</label>
+        <textarea id="recipe" name="recipe" rows="10" cols="50" placeholder="e.g. 1 cup rice, 2 eggs"></textarea>
+        <button type="submit">Get Nutrition Info</button>
+    </form>
+    <div id="nutritionInfo"></div>
+    <script src="nutrition.js"></script> <!-- Updated script file name -->
         
         <div class="container">
         <h1>Recipe Search</h1>
@@ -66,14 +74,7 @@
     <script src="script.js"></script>
 
 
-        <h1>Recipe Nutrition Calculator</h1>
-    <form id="recipeForm">
-        <label for="recipe">Enter Recipe Ingredients:</label>
-        <textarea id="recipe" name="recipe" rows="10" cols="50" placeholder="e.g. 1 cup rice, 2 eggs"></textarea>
-        <button type="submit">Get Nutrition Info</button>
-    </form>
-    <div id="nutritionInfo"></div>
-    <script src="nutrition.js"></script> <!-- Updated script file name -->
+       
 
         
         <div id="buttonDiv"></div>
