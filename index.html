@@ -4,6 +4,7 @@
         <title>Gonna Eat| Home</title>
         <link rel="stylesheet" type="text/css" href="styles/style_index.css">
         <!--Google Fonts-->
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Sign-In Demo</title>
@@ -17,7 +18,7 @@
       // Decode the token to get user information
       const userObject = parseJwt(response.credential);
       console.log(userObject);
-      // Display user information on the home screen
+      // Display user information next to the sign-in button
       displayUserInfo(userObject);
     }
 
@@ -31,7 +32,18 @@
     }
 
     function displayUserInfo(userInfo) {
-      document.getElementById('user-info').innerText = JSON.stringify(userInfo, null, 2);
+      var userInfoContainer = document.getElementById('user-info');
+      userInfoContainer.innerHTML = `
+        <div style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+          <h3>User Information</h3>
+          <p><strong>Name:</strong> ${userInfo.name}</p>
+          <p><strong>Email:</strong> ${userInfo.email}</p>
+          <p><strong>Profile Picture:</strong></p>
+          <img src="${userInfo.picture}" alt="Profile Picture" style="width: 100px; border-radius: 50%;">
+        </div>
+      `;
+      // Show the user info container
+      userInfoContainer.style.display = "block";
     }
 
     window.onload = function () {
@@ -46,7 +58,14 @@
       google.accounts.id.prompt(); // also display the One Tap dialog
     }
   </script>
-  </script>
+  <style>
+    #user-info {
+      display: none; /* Hide initially */
+      margin-top: 20px;
+    }
+  </style>
+
+
         
     </head>
     <body>
