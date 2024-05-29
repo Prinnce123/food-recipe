@@ -34,4 +34,20 @@ function displayNutritionInfo(data) {
             <p>Protein: ${data.totalNutrients.PROCNT.quantity} ${data.totalNutrients.PROCNT.unit}</p>
         `;
     }
+
+    // Show the overlay
+    document.getElementById('overlay').style.display = 'flex';
 }
+
+// Close overlay when close button is clicked
+document.getElementById('closeOverlay').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+});
+
+// Close overlay when user clicks outside of the overlay content
+window.addEventListener('click', function(event) {
+    const overlay = document.getElementById('overlay');
+    if (event.target === overlay) {
+        overlay.style.display = 'none';
+    }
+});
