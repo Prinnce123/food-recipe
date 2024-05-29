@@ -5,14 +5,65 @@
         <title>Gonna Eat | Smart Map</title>
         <link rel="stylesheet" type="text/css" href="styles/style_index.css">
         <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
+        
+         
+    <style>
+       
 
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #nutritionInfo {
+            margin-top: 20px;
+        }
+    </style>
         <!--Google Fonts-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     </head>
     <body>
         
-        <div class="container">
+       <div class="container">
         <h1>Recipe Nutrition Calculator</h1>
         <form id="recipeForm">
             <label for="recipe">Enter Recipe Ingredients:</label>
@@ -29,7 +80,7 @@
         </div>
     </div>
 
-    <script src="nutrition.js"></script> <!-- Updated script file name -->
+    <script src="nutrition.js"></script>
         
         <link rel="stylesheet" href="https://embed.pickaxeproject.com/axe/scripts/fab/styles.css">
 <script src="https://embed.pickaxeproject.com/axe/scripts/fab/bundle.js"></script>
