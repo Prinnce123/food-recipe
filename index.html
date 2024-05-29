@@ -4,12 +4,12 @@
         <title>Gonna Eat| Home</title>
         <link rel="stylesheet" type="text/css" href="styles/style_index.css">
         <!--Google Fonts-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Sign-In Demo</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
     function handleCredentialResponse(response) {
@@ -17,8 +17,10 @@
       // Decode the token to get user information
       const userObject = parseJwt(response.credential);
       console.log(userObject);
-      document.getElementById('user-info').innerText = JSON.stringify(userObject, null, 2);
+      // Display user information on the home screen
+      displayUserInfo(userObject);
     }
+
     function parseJwt(token) {
       var base64Url = token.split('.')[1];
       var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -28,10 +30,13 @@
       return JSON.parse(jsonPayload);
     }
 
+    function displayUserInfo(userInfo) {
+      document.getElementById('user-info').innerText = JSON.stringify(userInfo, null, 2);
+    }
+
     window.onload = function () {
       google.accounts.id.initialize({
         client_id: '253871739502-tvrcs1v5b2csekm9a66bmrepc4l6oj2t.apps.googleusercontent.com',
-       
         callback: handleCredentialResponse
       });
       google.accounts.id.renderButton(
@@ -41,10 +46,15 @@
       google.accounts.id.prompt(); // also display the One Tap dialog
     }
   </script>
+  </script>
         
     </head>
     <body>
-         
+          <!-- Google Sign-In Button -->
+  <div id="buttonDiv"></div>
+
+  <!-- Element to display user information -->
+  <pre id="user-info"></pre>
         
         <div class="container">
         <h1>Recipe Search</h1>
