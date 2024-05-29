@@ -2,8 +2,8 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
     event.preventDefault();
 
     const recipeText = document.getElementById('recipe').value;
-    const appId = '97384347';  // Replace with your App ID
-    const appKey = '1528dbda17120b9250b1add088659e80';  // Replace with your API Key
+    const appId = 'YOUR_APP_ID';  // Replace with your App ID
+    const appKey = 'YOUR_API_KEY';  // Replace with your API Key
 
     fetch(`https://api.edamam.com/api/nutrition-details?app_id=${appId}&app_key=${appKey}`, {
         method: 'POST',
@@ -39,8 +39,12 @@ function displayNutritionInfo(data) {
     document.getElementById('overlay').style.display = 'flex';
 }
 
-// Close overlay when close button is clicked
+// Close overlay when close button or close icon is clicked
 document.getElementById('closeOverlay').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+});
+
+document.getElementById('closeOverlayButton').addEventListener('click', function() {
     document.getElementById('overlay').style.display = 'none';
 });
 
