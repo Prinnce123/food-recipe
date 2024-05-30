@@ -13,6 +13,10 @@
             background-color: #f4f4f4;
         }
 
+        .label {
+            color: #FF0000;
+        }
+
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -22,11 +26,10 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: relative;
             z-index: 1;
-            margin-bottom: 20px; /* Add margin-bottom to create space */
         }
 
         .overlay {
-            display: none;
+            display: none; /* Hidden by default */
             position: fixed;
             top: 0;
             left: 0;
@@ -78,71 +81,19 @@
             margin-top: 20px;
         }
 
-        /* Style for Recipe Nutrition Calculator box */
-        .recipe-calculator {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
+        /* Add CSS for the map description */
+        .map-description {
+            float: left;
+            margin-right: 20px;
         }
 
-        /* Move the label below the calculator */
-        #recipe-label {
-            margin-top: 10px;
-            display: block;
-        }
-
-        /* Smart Map styles */
         .map {
-            text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 50px; /* Add padding to prevent hiding under sliding box */
-        }
-
-        .map-info {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .map img {
-            width: 700px;
-            height: 495px;
-        }
-
-        .cusine-map {
-            margin-top: 20px;
-        }
-
-        .contact-us {
-            text-align: center;
-            background: #222;
-            color: white;
-            padding: 20px;
-        }
-
-        .contact-us h2, .contact-us h3 {
-            margin: 10px 0;
-        }
-
-        .contact-card {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-item {
-            margin: 0 10px;
-        }
-
-        .contact-item h4 {
-            margin: 5px 0;
+            clear: both; /* Clear the float to ensure proper layout */
         }
     </style>
 
-    <!--Google Fonts-->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
 <body>
 
@@ -162,25 +113,12 @@
     </ul>
 </nav>
 
-<!-- Container for Recipe Nutrition Calculator -->
 <div class="container">
-    <div class="recipe-calculator">
-        <h1>Recipe Nutrition Calculator
-        </h1>
-        <form id="recipeForm">
-            <!-- Enter Recipe Ingredients label -->
-            <label id="recipe-label" for="recipe">Enter Recipe Ingredients:</label>
-            <textarea id="recipe" name="recipe" rows="10" cols="50" placeholder="e.g. 1 cup rice, 2 eggs"></textarea>
-            <button type="submit">Get Nutrition Info</button>
-        </form>
-    </div>
-</div>
-
-<!-- Smart Map section -->
-<div class="map">
-    <div class="map-info">
-        <h1 style="text-align: left;">Smart Map</h1>
-        <p style="text-align: left;">Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+    <h1>Home</h1>
+    <!-- Move the "Smart Map" heading and description to the left within the box -->
+    <div class="map-description">
+        <h1>Smart Map</h1>
+        <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
     </div>
     <table>
         <tr>
@@ -202,37 +140,34 @@
     </table>
 </div>
 
-<!-- Overlay container -->
-<div id="overlay" class="overlay">
-    <div class="overlay-content">
-        <span id="closeOverlay" class="close">&times;</span>
-        <div id="nutritionInfo"></div>
-        <button class="close-button" id="closeOverlayButton">Close Overlay</button>
-    </div>
-</div>
-
-<!-- Contact Us section -->
 <div class="contact-us" id="contact">
     <h2>About Us</h2>
     <h3>Our Team</h3>
+    <h3>Tech Demon</h3>
+
 
     <div class="contact-card">
         <div class="contact-item">
+
             <h4>Prince Sharma</h4>
             <p>Team Leader</p>
         </div>
         <div class="contact-item">
+
             <h4>Alok Kumar Gupta</h4>
             <p>Team Member</p>
         </div>
         <div class="contact-item">
+
             <h4>Nihal Saraogi</h4>
             <p>Team Member</p>
         </div>
         <div class="contact-item">
+
             <h4>Yatendra Kumar</h4>
             <p>Team Member</p>
         </div>
+
     </div>
     <p>© 2024 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Gonna Eat</a></p>
 </div>
@@ -242,4 +177,3 @@
 <script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
 </body>
 </html>
-
