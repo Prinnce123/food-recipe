@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <title>Gonna Eat | Smart Map</title>
-        <link rel="stylesheet" type="text/css" href="styles/style_index.css">
-        <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
-        
-         
-       <label for="recipe" style="color: red;">Enter Recipe Ingredients:</label>
+<head>
+    <title>Gonna Eat | Smart Map</title>
+    <link rel="stylesheet" type="text/css" href="styles/style_index.css">
+    <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
 
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <style>
-                body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
-
-       .label {
-         color: #FF0000;
-     }
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -30,9 +25,8 @@
             position: relative;
             z-index: 1;
         }
-
         .overlay {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -43,7 +37,6 @@
             align-items: center;
             z-index: 1000;
         }
-
         .overlay-content {
             background: #fff;
             padding: 20px;
@@ -53,8 +46,9 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: relative;
             z-index: 1001;
+            overflow: auto;
+            max-height: 90vh;
         }
-
         .close {
             position: absolute;
             top: 10px;
@@ -62,7 +56,6 @@
             font-size: 24px;
             cursor: pointer;
         }
-
         .close-button {
             display: block;
             width: 100%;
@@ -75,23 +68,95 @@
             border-radius: 4px;
             margin-top: 20px;
         }
-
         .close-button:hover {
             background: #c82333;
         }
-
-        #nutritionInfo {
-            margin-top: 20px;
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .map {
+            text-align: center;
+            padding: 20px;
+        }
+        .map img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+        }
+        .contact-us {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .contact-card {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            margin: 10px;
+            background: #444;
+            padding: 20px;
+            border-radius: 8px;
         }
     </style>
 
-        <!--Google Fonts-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('recipeForm');
+            const overlay = document.getElementById('overlay');
+            const closeOverlay = document.getElementById('closeOverlay');
+            const closeOverlayButton = document.getElementById('closeOverlayButton');
+            const nutritionInfo = document.getElementById('nutritionInfo');
 
-    </head>
-    <body>
-        
-      <div class="container">
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                overlay.style.display = 'flex';
+                // Add your logic here to fetch and display nutrition information
+                nutritionInfo.innerHTML = '<p>Nutrition info will be displayed here.</p>';
+            });
+
+            closeOverlay.addEventListener('click', function() {
+                overlay.style.display = 'none';
+            });
+
+            closeOverlayButton.addEventListener('click', function() {
+                overlay.style.display = 'none';
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <i class="material-icons">restaurant_menu</i>Gonna Eat
+            </a>
+        </div>
+        <div class="menu-bar">
+            <a href="index.html">Home</a>
+            <a href="index.html#latest_recipes">Latest Recipes</a>
+            <a href="index.html#cuisines">Cuisines</a>
+            <a href="#contact">Contact Us</a>
+            <a href="map.html">Explore Recipes</a>
+            <a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a>
+        </div>
+    </nav>
+
+    <!-- Recipe Nutrition Calculator -->
+    <div class="container">
         <h1>Recipe Nutrition Calculator</h1>
         <form id="recipeForm">
             <label for="recipe">Enter Recipe Ingredients:</label>
@@ -109,85 +174,59 @@
         </div>
     </div>
 
-    <script src="nutrition.js"></script>
-        
-        <link rel="stylesheet" href="https://embed.pickaxeproject.com/axe/scripts/fab/styles.css">
-<script src="https://embed.pickaxeproject.com/axe/scripts/fab/bundle.js"></script>
-<div id="rendering-information" data-height="400px" data-width="90%" data-formid="cooker_EXZ7R" data-frame-source="https://embed.pickaxeproject.com/axe?id=cooker_EXZ7R&mode=embed_gold&host=beta&theme=light&opacity=100&font_header=Real+Head+Pro&size_header=30&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=FFFFFF&c_ff=FFFFFF&c_fbd=888888&c_rb=FFFFFF&c_bb=228DD7&c_bt=FFFFFF&c_t=000000&s_ffo=100&s_rbo=100&s_bbo=100&s_f=minimalist&s_b=filled&s_t=0.5&s_to=1&s_r=2" data-title="cooker">
-       
-        <!--Navbar-->
-        <nav>
-            <ul class="menu-bar">
-                <div class="logo">
-                    <a href="index.html">
-                        <i class="material-icons">restaurant_menu</i>Gonna Eat</a>
-                
-                </div>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#latest_recipes">Latest Recipes</a></li>
-                <li><a href="index.html#cuisines">Cuisines</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="map.html">Explore Recipes</a></li>
-                <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
-            </ul>
-        </nav>
+    <!-- Smart Map -->
+    <div class="map">
+        <h1>Smart Map</h1>
+        <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+        <table>
+            <tr>
+                <td>
+                    <img src="assets/main/map_recipes.png" alt="eurasia_map" usemap="#cuisines">
+                    <map name="cuisines">
+                        <area shape="rect" coords="513,328,607,370" href="south_indian_map.html" alt="SOUTH INDIAN" target="display_area">
+                        <area shape="rect" coords="496,250,586,303" href="north_indian_map.html" alt="NORTH INDIAN" target="display_area">
+                        <area shape="rect" coords="592,229,653,283" href="chinese_map.html" alt="CHINESE" target="display_area">
+                        <area shape="rect" coords="283,200,342,246" href="italian_map.html" alt="ITALIAN" target="display_area">
+                    </map>
+                </td>
+                <td>
+                    <div class="cuisine-map">
+                        <iframe src="map_default.html" title="display_area" name="display_area"></iframe>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-        <div class="map">
-            <h1>Smart Map</h1>
-            <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
-            <table>
-                <tr>
-                    <td>
-                        <img src="assets/main/map_recipes.png" alt="eurasia_map" width="700px" height="495px" usemap="#cusines">
-                        <map name="cusines">
-                            <area shape="rect" coords="513,328,607,370" href="south_indian_map.html" alt="SOUTH INDIAN" target="display_area">
-                            <area shape="rect" coords="496,250,586,303" href="north_indian_map.html" alt="NORTH INDIAN" target="display_area">
-                            <area shape="rect" coords="592,229,653,283" href="chinese_map.html" alt="CHINESE" target="display_area">
-                            <area shape="rect" coords="283,200,342,246" href="italian_map.html" alt="ITALIAN" target="display_area">
-                        </map>
-                    </td>
-                    <td>
-                        <div class="cusine-map">
-                            <iframe src="map_default.html" title="display_area" name="display_area"></iframe>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="contact-us" id="contact">
-            <h2>About Us</h2>
-            <h3>Our Team</h3>
-            <h3>Tech Demon</h3>
-            
-            
-            <div class="contact-card">
-                <div class="contact-item">
-                    
-                    <h4>Prince Sharma</h4>
-                    <p>Team Leader</p>
-                </div>
-                <div class="contact-item">
-                   
-                    <h4>Alok Kumar Gupta</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="contact-item">
-                    
-                    <h4>Nihal Saraogi</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="contact-item">
-                   
-                    <h4>Yatendra Kumar</h4>
-                    <p>Team Member</p>
-                </div>
-               
+    <!-- Contact Us -->
+    <div class="contact-us" id="contact">
+        <h2>About Us</h2>
+        <h3>Our Team</h3>
+        <h3>Tech Demon</h3>
+        <div class="contact-card">
+            <div class="contact-item">
+                <h4>Prince Sharma</h4>
+                <p>Team Leader</p>
             </div>
-            <p>© 2024 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Gonna Eat</a></p>
+            <div class="contact-item">
+                <h4>Alok Kumar Gupta</h4>
+                <p>Team Member</p>
+            </div>
+            <div class="contact-item">
+                <h4>Nihal Saraogi</h4>
+                <p>Team Member</p>
+            </div>
+            <div class="contact-item">
+                <h4>Yatendra Kumar</h4>
+                <p>Team Member</p>
+            </div>
         </div>
-        <script src="js/index_logic.js"></script>
-         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
-        <script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
-    </body>
+        <p>© 2024 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Gonna Eat</a></p>
+    </div>
+
+    <script src="js/index_logic.js"></script>
+    <script src="nutrition.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
+</body>
 </html>
