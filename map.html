@@ -100,6 +100,11 @@
             padding-bottom: 50px; /* Add padding to prevent hiding under sliding box */
         }
 
+        .map-info {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
         .map img {
             width: 700px;
             height: 495px;
@@ -160,7 +165,8 @@
 <!-- Container for Recipe Nutrition Calculator -->
 <div class="container">
     <div class="recipe-calculator">
-        <h1>Recipe Nutrition Calculator</h1>
+        <h1>Recipe Nutrition Calculator
+        </h1>
         <form id="recipeForm">
             <!-- Enter Recipe Ingredients label -->
             <label id="recipe-label" for="recipe">Enter Recipe Ingredients:</label>
@@ -172,8 +178,10 @@
 
 <!-- Smart Map section -->
 <div class="map">
-    <h1>Smart Map</h1>
-    <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+    <div class="map-info">
+        <h1 style="text-align: left;">Smart Map</h1>
+        <p style="text-align: left;">Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+    </div>
     <table>
         <tr>
             <td>
@@ -203,7 +211,6 @@
     </div>
 </div>
 
-<!-- Contact Us section
 <!-- Contact Us section -->
 <div class="contact-us" id="contact">
     <h2>About Us</h2>
@@ -235,3 +242,4 @@
 <script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
 </body>
 </html>
+
