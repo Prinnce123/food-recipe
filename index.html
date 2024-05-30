@@ -4,24 +4,34 @@
         <title>Gonna Eat| Home</title>
         <link rel="stylesheet" type="text/css" href="styles/style_index.css">
         <!--Google Fonts-->
-
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Sign-In Demo</title>
-@@ -17,7 +18,7 @@
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function handleCredentialResponse(response) {
+      console.log("Encoded JWT ID token: " + response.credential);
       // Decode the token to get user information
       const userObject = parseJwt(response.credential);
       console.log(userObject);
-      // Display user information on the home screen
       // Display user information next to the sign-in button
       displayUserInfo(userObject);
     }
 
-@@ -31,7 +32,18 @@
+    function parseJwt(token) {
+      var base64Url = token.split('.')[1];
+      var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
     }
 
     function displayUserInfo(userInfo) {
-      document.getElementById('user-info').innerText = JSON.stringify(userInfo, null, 2);
       var userInfoContainer = document.getElementById('user-info');
       userInfoContainer.innerHTML = `
         <div style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
@@ -37,10 +47,16 @@
     }
 
     window.onload = function () {
-@@ -46,7 +58,14 @@
+      google.accounts.id.initialize({
+        client_id: '253871739502-tvrcs1v5b2csekm9a66bmrepc4l6oj2t.apps.googleusercontent.com',
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" }  // customization attributes
+      );
       google.accounts.id.prompt(); // also display the One Tap dialog
     }
-  </script>
   </script>
   <style>
     #user-info {
@@ -50,11 +66,12 @@
   </style>
 
 
-
+        
     </head>
     <body>
           <!-- Google Sign-In Button -->
   <div id="buttonDiv"></div>
+
   <!-- Element to display user information -->
   <pre id="user-info"></pre>
         
