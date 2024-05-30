@@ -1,22 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <title>Gonna Eat | Smart Map</title>
-    <link rel="stylesheet" type="text/css" href="styles/style_index.css">
-    <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
+    <head>
+        <title>Gonna Eat | Smart Map</title>
+        <link rel="stylesheet" type="text/css" href="styles/style_index.css">
+        <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
+        
+         
+       <label for="recipe" style="color: red;">Enter Recipe Ingredients:</label>
 
     <style>
-        body {
+                body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
 
-        .label {
-            color: #FF0000;
-        }
-
+       .label {
+         color: #FF0000;
+     }
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -80,100 +83,111 @@
         #nutritionInfo {
             margin-top: 20px;
         }
-
-        /* Add CSS for the map description */
-        .map-description {
-            float: left;
-            margin-right: 20px;
-        }
-
-        .map {
-            clear: both; /* Clear the float to ensure proper layout */
-        }
     </style>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<!-- Navbar -->
-<nav>
-    <ul class="menu-bar">
-        <div class="logo">
-            <a href="index.html">
-                <i class="material-icons">restaurant_menu</i>Gonna Eat</a>
-        </div>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#latest_recipes">Latest Recipes</a></li>
-        <li><a href="index.html#cuisines">Cuisines</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="map.html">Explore Recipes</a></li>
-        <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
-    </ul>
-</nav>
-
-<div class="container">
-    <h1>Home</h1>
-    <!-- Move the "Smart Map" heading and description to the left within the box -->
-    <div class="map-description">
-        <h1>Smart Map</h1>
-        <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+    </head>
+    <body>
+        
+      <div class="container">
+        <h1>Recipe Nutrition Calculator</h1>
+        <form id="recipeForm">
+            <label for="recipe">Enter Recipe Ingredients:</label>
+            <textarea id="recipe" name="recipe" rows="10" cols="50" placeholder="e.g. 1 cup rice, 2 eggs"></textarea>
+            <button type="submit">Get Nutrition Info</button>
+        </form>
     </div>
-    <table>
-        <tr>
-            <td>
-                <img src="assets/main/map_recipes.png" alt="eurasia_map" width="700px" height="495px" usemap="#cusines">
-                <map name="cusines">
-                    <area shape="rect" coords="513,328,607,370" href="south_indian_map.html" alt="SOUTH INDIAN" target="display_area">
-                    <area shape="rect" coords="496,250,586,303" href="north_indian_map.html" alt="NORTH INDIAN" target="display_area">
-                    <area shape="rect" coords="592,229,653,283" href="chinese_map.html" alt="CHINESE" target="display_area">
-                    <area shape="rect" coords="283,200,342,246" href="italian_map.html" alt="ITALIAN" target="display_area">
-                </map>
-            </td>
-            <td>
-                <div class="cusine-map">
-                    <iframe src="map_default.html" title="display_area" name="display_area"></iframe>
+
+    <!-- Overlay container -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <span id="closeOverlay" class="close">&times;</span>
+            <div id="nutritionInfo"></div>
+            <button class="close-button" id="closeOverlayButton">Close Overlay</button>
+        </div>
+    </div>
+
+    <script src="nutrition.js"></script>
+        
+        <link rel="stylesheet" href="https://embed.pickaxeproject.com/axe/scripts/fab/styles.css">
+<script src="https://embed.pickaxeproject.com/axe/scripts/fab/bundle.js"></script>
+<div id="rendering-information" data-height="400px" data-width="90%" data-formid="cooker_EXZ7R" data-frame-source="https://embed.pickaxeproject.com/axe?id=cooker_EXZ7R&mode=embed_gold&host=beta&theme=light&opacity=100&font_header=Real+Head+Pro&size_header=30&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=FFFFFF&c_ff=FFFFFF&c_fbd=888888&c_rb=FFFFFF&c_bb=228DD7&c_bt=FFFFFF&c_t=000000&s_ffo=100&s_rbo=100&s_bbo=100&s_f=minimalist&s_b=filled&s_t=0.5&s_to=1&s_r=2" data-title="cooker">
+       
+        <!--Navbar-->
+        <nav>
+            <ul class="menu-bar">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="material-icons">restaurant_menu</i>Gonna Eat</a>
+                
                 </div>
-            </td>
-        </tr>
-    </table>
-</div>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#latest_recipes">Latest Recipes</a></li>
+                <li><a href="index.html#cuisines">Cuisines</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="map.html">Explore Recipes</a></li>
+                <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
+            </ul>
+        </nav>
 
-<div class="contact-us" id="contact">
-    <h2>About Us</h2>
-    <h3>Our Team</h3>
-    <h3>Tech Demon</h3>
-
-
-    <div class="contact-card">
-        <div class="contact-item">
-
-            <h4>Prince Sharma</h4>
-            <p>Team Leader</p>
+        <div class="map">
+            <h1>Smart Map</h1>
+            <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+            <table>
+                <tr>
+                    <td>
+                        <img src="assets/main/map_recipes.png" alt="eurasia_map" width="700px" height="495px" usemap="#cusines">
+                        <map name="cusines">
+                            <area shape="rect" coords="513,328,607,370" href="south_indian_map.html" alt="SOUTH INDIAN" target="display_area">
+                            <area shape="rect" coords="496,250,586,303" href="north_indian_map.html" alt="NORTH INDIAN" target="display_area">
+                            <area shape="rect" coords="592,229,653,283" href="chinese_map.html" alt="CHINESE" target="display_area">
+                            <area shape="rect" coords="283,200,342,246" href="italian_map.html" alt="ITALIAN" target="display_area">
+                        </map>
+                    </td>
+                    <td>
+                        <div class="cusine-map">
+                            <iframe src="map_default.html" title="display_area" name="display_area"></iframe>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <div class="contact-item">
 
-            <h4>Alok Kumar Gupta</h4>
-            <p>Team Member</p>
+        <div class="contact-us" id="contact">
+            <h2>About Us</h2>
+            <h3>Our Team</h3>
+            <h3>Tech Demon</h3>
+            
+            
+            <div class="contact-card">
+                <div class="contact-item">
+                    
+                    <h4>Prince Sharma</h4>
+                    <p>Team Leader</p>
+                </div>
+                <div class="contact-item">
+                   
+                    <h4>Alok Kumar Gupta</h4>
+                    <p>Team Member</p>
+                </div>
+                <div class="contact-item">
+                    
+                    <h4>Nihal Saraogi</h4>
+                    <p>Team Member</p>
+                </div>
+                <div class="contact-item">
+                   
+                    <h4>Yatendra Kumar</h4>
+                    <p>Team Member</p>
+                </div>
+               
+            </div>
+            <p>© 2024 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Gonna Eat</a></p>
         </div>
-        <div class="contact-item">
-
-            <h4>Nihal Saraogi</h4>
-            <p>Team Member</p>
-        </div>
-        <div class="contact-item">
-
-            <h4>Yatendra Kumar</h4>
-            <p>Team Member</p>
-        </div>
-
-    </div>
-    <p>© 2024 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Gonna Eat</a></p>
-</div>
-
-<script src="js/index_logic.js"></script>
-<script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
-<script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
-</body>
+        <script src="js/index_logic.js"></script>
+         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+        <script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
+    </body>
 </html>
