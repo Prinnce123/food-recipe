@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gonna Eat | Smart Map</title>
     <link rel="stylesheet" type="text/css" href="styles/style_index.css">
     <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
     <style>
+        /* Adjustments for the sliding bar */
+        #slidingBar {
+            position: fixed; /* or position: absolute; */
+            top: 0; /* Adjust as needed */
+            left: 0; /* Adjust as needed */
+            z-index: 1000; /* Ensure it has a higher z-index than the content below */
+            /* Add additional styling properties as needed */
+        }
+
+        /* Adjustments for the content below the sliding bar */
+        #contentBelow {
+            margin-top: 100px; /* Adjust to create space below the sliding bar */
+            /* Add additional styling properties as needed */
+        }
+
+        /* Other styles from your original code */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
+
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -25,8 +40,9 @@
             position: relative;
             z-index: 1;
         }
+
         .overlay {
-            display: none;
+            display: none; /* Hidden by default */
             position: fixed;
             top: 0;
             left: 0;
@@ -37,198 +53,109 @@
             align-items: center;
             z-index: 1000;
         }
-        .overlay-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1001;
-            overflow: auto;
-            max-height: 90vh;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .close-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            background: #dc3545;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-        .close-button:hover {
-            background: #c82333;
-        }
-        nav {
-            background: #333;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .map {
-            text-align: center;
-            padding: 20px;
-        }
-        .map img {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            display: block;
-            margin: 0 auto; /* Center the image */
-        }
-        .cuisine-map {
-            overflow: hidden; /* Ensure overflow is hidden */
-        }
-        .cuisine-map iframe {
-            width: 100%;
-            height: 500px; /* Adjust height as needed */
-            border: none;
-        }
-        .contact-us {
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .contact-card {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .contact-item {
-            margin: 10px;
-            background: #444;
-            padding: 20px;
-            border-radius: 8px;
-        }
+
+        /* Other styles from your original code */
     </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('recipeForm');
-            const overlay = document.getElementById('overlay');
-            const closeOverlay = document.getElementById('closeOverlay');
-            const closeOverlayButton = document.getElementById('closeOverlayButton');
-            const nutritionInfo = document.getElementById('nutritionInfo');
-
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                overlay.style.display = 'flex';
-                // Add your logic here to fetch and display nutrition information
-                nutritionInfo.innerHTML = '<p>Nutrition info will be displayed here.</p>';
-            });
-
-            closeOverlay.addEventListener('click', function() {
-                overlay.style.display = 'none';
-            });
-
-            closeOverlayButton.addEventListener('click', function() {
-                overlay.style.display = 'none';
-            });
-        });
-    </script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">
-            <a href="index.html">
-                <i class="material-icons">restaurant_menu</i>Gonna Eat
-            </a>
-        </div>
-        <div class="menu-bar">
-            <a href="index.html">Home</a>
-            <a href="index.html#latest_recipes">Latest Recipes</a>
-            <a href="index.html#cuisines">Cuisines</a>
-            <a href="#contact">Contact Us</a>
-            <a href="map.html">Explore Recipes</a>
-            <a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a>
-        </div>
-    </nav>
-
-    <!-- Recipe Nutrition Calculator -->
-    <div class="container">
-        <h1>Recipe Nutrition Calculator</h1>
-        <form id="recipeForm">
-            <label for="recipe">Enter Recipe Ingredients:</label>
-            <textarea id="recipe" name="recipe" rows="10" cols="50" placeholder="e.g. 1 cup rice, 2 eggs"></textarea>
-            <button type="submit">Get Nutrition Info</button>
-        </form>
+    <!-- Sliding bar of the API -->
+    <div id="slidingBar">
+        <!-- Content of the sliding bar -->
+        <!-- Adjust as needed -->
     </div>
 
-    <!-- Overlay container -->
-    <div id="overlay" class="overlay">
-        <div class="overlay-content">
-            <span id="closeOverlay" class="close">&times;</span>
-            <div id="nutritionInfo"></div>
-            <button class="close-button" id="closeOverlayButton">Close Overlay</button>
+    <!-- Content below the sliding bar -->
+    <div id="contentBelow">
+        <!-- Your existing HTML content -->
+        <div class="container">
+            <h1>Recipe Nutrition Calculator</h1>
+            <form id="recipeForm">
+                <label for="recipe">Enter Recipe Ingredients:</label>
+                <textarea id="recipe" name="recipe" rows="10" cols="50" placeholder="e.g. 1 cup rice, 2 eggs"></textarea>
+                <button type="submit">Get Nutrition Info</button>
+            </form>
         </div>
-    </div>
 
-    <!-- Smart Map -->
-    <div class="map">
-        <h1>Smart Map</h1>
-        <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
-        <table>
-            <tr>
-                <td>
-                    <div class="cuisine-map">
-                        <iframe src="map_default.html" title="display_area" name="display_area"></iframe>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <!-- Overlay container -->
+        <div id="overlay" class="overlay">
+            <!-- Overlay content -->
+            <!-- Adjust as needed -->
+        </div>
 
-    <!-- Contact Us -->
-    <div class="contact-us" id="contact">
-        <h2>About Us</h2>
-        <h3>Our Team</h3>
-        <h3>Tech Demon</h3>
-        <div class="contact-card">
-            <div class="contact-item">
-                <h4>Prince Sharma</h4>
-                <p>Team Leader</p>
+        <!-- Navbar and other content from your original code -->
+        <nav>
+            <ul class="menu-bar">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="material-icons">restaurant_menu</i>Gonna Eat</a>
+                
+                </div>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#latest_recipes">Latest Recipes</a></li>
+                <li><a href="index.html#cuisines">Cuisines</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="map.html">Explore Recipes</a></li>
+                <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
+            </ul>
+        </nav>
+
+        <div class="map">
+            <h1>Smart Map</h1>
+            <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+            <table>
+                <tr>
+                    <td>
+                        <img src="assets/main/map_recipes.png" alt="eurasia_map" width="700px" height="495px" usemap="#cusines">
+                        <map name="cusines">
+                            <area shape="rect" coords="513,328,607,370" href="south_indian_map.html" alt="SOUTH INDIAN" target="display_area">
+                            <area shape="rect" coords="496,250,586,303" href="north_indian_map.html" alt="NORTH INDIAN" target="display_area">
+                            <area shape="rect" coords="592,229,653,283" href="chinese_map.html" alt="CHINESE" target="display_area">
+                            <area shape="rect" coords="283,200,342,246" href="italian_map.html" alt="ITALIAN" target="display_area">
+                        </map>
+                    </td>
+                    <td>
+                        <div class="cusine-map">
+                            <iframe src="map_default.html" title="display_area" name="display_area"></iframe>
                         </div>
-            <div class="contact-item">
-                <h4>Alok Kumar Gupta</h4>
-                <p>Team Member</p>
-            </div>
-            <div class="contact-item">
-                <h4>Nihal Saraogi</h4>
-                <p>Team Member</p>
-            </div>
-            <div class="contact-item">
-                <h4>Yatendra Kumar</h4>
-                <p>Team Member</p>
-            </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <p>© 2024 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Gonna Eat</a></p>
-    </div>
 
-    <script src="js/index_logic.js"></script>
-    <script src="nutrition.js"></script>
-    <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
+        <div class="contact-us" id="contact">
+            <h2>About Us</h2>
+            <h3>Our Team</h3>
+            <h3>Tech Demon</h3>
+            
+            <div class="contact-card">
+                <div class="contact-item">
+                    <h4>Prince Sharma</h4>
+                    <p>Team Leader</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Alok Kumar Gupta</h4>
+                    <p>Team Member</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Nihal Saraogi</h4>
+                    <p>Team Member</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Yatendra Kumar</h4>
+                    <p>Team Member</p>
+                </div>
+            </div>
+            <p>© 2024 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Gonna Eat</a></p>
+        </div>
+
+        <!-- Include your JavaScript files and other external resources here -->
+        <script src="nutrition.js"></script>
+        <link rel="stylesheet" href="https://embed.pickaxeproject.com/axe/scripts/fab/styles.css">
+        <script src="https://embed.pickaxeproject.com/axe/scripts/fab/bundle.js"></script>
+        <script src="js/index_logic.js"></script>
+        <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+        <script src="https://mediafiles.botpress.cloud/db550b79-ffa9-49dc-a5b9-27d5483fef1b/webchat/v2/config.js"></script>
+    </div>
 </body>
 </html>
 
